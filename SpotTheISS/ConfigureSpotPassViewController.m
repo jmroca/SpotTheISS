@@ -82,6 +82,7 @@
                             
     localNotif.alertAction = NSLocalizedString(@"View Details", nil);
     
+    
     localNotif.soundName = UILocalNotificationDefaultSoundName;
     localNotif.applicationIconBadgeNumber = 1;
     

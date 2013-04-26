@@ -8,9 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		000177B21722260900ED8FA3 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 000177B11722260900ED8FA3 /* CoreLocation.framework */; };
+		007369A617287F7D003CFA63 /* Location3DGlobeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 007369A517287F7D003CFA63 /* Location3DGlobeViewController.m */; };
+		007369B6172880FA003CFA63 /* lowres_wtb_0x0.pvrtc in Resources */ = {isa = PBXBuildFile; fileRef = 007369AB172880FA003CFA63 /* lowres_wtb_0x0.pvrtc */; };
+		007369B7172880FA003CFA63 /* lowres_wtb_0x1.pvrtc in Resources */ = {isa = PBXBuildFile; fileRef = 007369AC172880FA003CFA63 /* lowres_wtb_0x1.pvrtc */; };
+		007369B8172880FA003CFA63 /* lowres_wtb_1x0.pvrtc in Resources */ = {isa = PBXBuildFile; fileRef = 007369AD172880FA003CFA63 /* lowres_wtb_1x0.pvrtc */; };
+		007369B9172880FA003CFA63 /* lowres_wtb_1x1.pvrtc in Resources */ = {isa = PBXBuildFile; fileRef = 007369AE172880FA003CFA63 /* lowres_wtb_1x1.pvrtc */; };
+		007369BA172880FA003CFA63 /* lowres_wtb_2x0.pvrtc in Resources */ = {isa = PBXBuildFile; fileRef = 007369AF172880FA003CFA63 /* lowres_wtb_2x0.pvrtc */; };
+		007369BB172880FA003CFA63 /* lowres_wtb_2x1.pvrtc in Resources */ = {isa = PBXBuildFile; fileRef = 007369B0172880FA003CFA63 /* lowres_wtb_2x1.pvrtc */; };
+		007369BC172880FA003CFA63 /* lowres_wtb_3x0.pvrtc in Resources */ = {isa = PBXBuildFile; fileRef = 007369B1172880FA003CFA63 /* lowres_wtb_3x0.pvrtc */; };
+		007369BD172880FA003CFA63 /* lowres_wtb_3x1.pvrtc in Resources */ = {isa = PBXBuildFile; fileRef = 007369B2172880FA003CFA63 /* lowres_wtb_3x1.pvrtc */; };
+		007369BE172880FA003CFA63 /* lowres_wtb_4x0.pvrtc in Resources */ = {isa = PBXBuildFile; fileRef = 007369B3172880FA003CFA63 /* lowres_wtb_4x0.pvrtc */; };
+		007369BF172880FA003CFA63 /* lowres_wtb_4x1.pvrtc in Resources */ = {isa = PBXBuildFile; fileRef = 007369B4172880FA003CFA63 /* lowres_wtb_4x1.pvrtc */; };
+		007369C0172880FA003CFA63 /* lowres_wtb_info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 007369B5172880FA003CFA63 /* lowres_wtb_info.plist */; };
+		007369C2172881C9003CFA63 /* WhirlyGlobeComponent.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 007369C1172881C9003CFA63 /* WhirlyGlobeComponent.framework */; };
+		007369C417288936003CFA63 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 007369C317288936003CFA63 /* OpenGLES.framework */; };
+		007369C617288954003CFA63 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 007369C517288954003CFA63 /* libsqlite3.dylib */; };
+		007369C81728896C003CFA63 /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 007369C71728896C003CFA63 /* libstdc++.dylib */; };
 		0094328B17227F9D001C0751 /* LocationMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0094328A17227F9D001C0751 /* LocationMapViewController.m */; };
 		0094328E172280A5001C0751 /* ISSMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0094328D172280A5001C0751 /* ISSMapAnnotation.m */; };
 		00943290172280D5001C0751 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0094328F172280D5001C0751 /* MapKit.framework */; };
+		009FF2E0172490B000404477 /* la foto.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 009FF2DF172490B000404477 /* la foto.JPG */; };
 		00C9988A172203AF00D8281A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C99889172203AF00D8281A /* UIKit.framework */; };
 		00C9988C172203AF00D8281A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C9988B172203AF00D8281A /* Foundation.framework */; };
 		00C9988E172203AF00D8281A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C9988D172203AF00D8281A /* CoreGraphics.framework */; };
@@ -145,11 +162,29 @@
 
 /* Begin PBXFileReference section */
 		000177B11722260900ED8FA3 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		007369A417287F7D003CFA63 /* Location3DGlobeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Location3DGlobeViewController.h; sourceTree = "<group>"; };
+		007369A517287F7D003CFA63 /* Location3DGlobeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Location3DGlobeViewController.m; sourceTree = "<group>"; };
+		007369AB172880FA003CFA63 /* lowres_wtb_0x0.pvrtc */ = {isa = PBXFileReference; lastKnownFileType = file; path = lowres_wtb_0x0.pvrtc; sourceTree = "<group>"; };
+		007369AC172880FA003CFA63 /* lowres_wtb_0x1.pvrtc */ = {isa = PBXFileReference; lastKnownFileType = file; path = lowres_wtb_0x1.pvrtc; sourceTree = "<group>"; };
+		007369AD172880FA003CFA63 /* lowres_wtb_1x0.pvrtc */ = {isa = PBXFileReference; lastKnownFileType = file; path = lowres_wtb_1x0.pvrtc; sourceTree = "<group>"; };
+		007369AE172880FA003CFA63 /* lowres_wtb_1x1.pvrtc */ = {isa = PBXFileReference; lastKnownFileType = file; path = lowres_wtb_1x1.pvrtc; sourceTree = "<group>"; };
+		007369AF172880FA003CFA63 /* lowres_wtb_2x0.pvrtc */ = {isa = PBXFileReference; lastKnownFileType = file; path = lowres_wtb_2x0.pvrtc; sourceTree = "<group>"; };
+		007369B0172880FA003CFA63 /* lowres_wtb_2x1.pvrtc */ = {isa = PBXFileReference; lastKnownFileType = file; path = lowres_wtb_2x1.pvrtc; sourceTree = "<group>"; };
+		007369B1172880FA003CFA63 /* lowres_wtb_3x0.pvrtc */ = {isa = PBXFileReference; lastKnownFileType = file; path = lowres_wtb_3x0.pvrtc; sourceTree = "<group>"; };
+		007369B2172880FA003CFA63 /* lowres_wtb_3x1.pvrtc */ = {isa = PBXFileReference; lastKnownFileType = file; path = lowres_wtb_3x1.pvrtc; sourceTree = "<group>"; };
+		007369B3172880FA003CFA63 /* lowres_wtb_4x0.pvrtc */ = {isa = PBXFileReference; lastKnownFileType = file; path = lowres_wtb_4x0.pvrtc; sourceTree = "<group>"; };
+		007369B4172880FA003CFA63 /* lowres_wtb_4x1.pvrtc */ = {isa = PBXFileReference; lastKnownFileType = file; path = lowres_wtb_4x1.pvrtc; sourceTree = "<group>"; };
+		007369B5172880FA003CFA63 /* lowres_wtb_info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = lowres_wtb_info.plist; sourceTree = "<group>"; };
+		007369C1172881C9003CFA63 /* WhirlyGlobeComponent.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WhirlyGlobeComponent.framework; sourceTree = "<group>"; };
+		007369C317288936003CFA63 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		007369C517288954003CFA63 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		007369C71728896C003CFA63 /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/libstdc++.dylib"; sourceTree = SDKROOT; };
 		0094328917227F9D001C0751 /* LocationMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationMapViewController.h; sourceTree = "<group>"; };
 		0094328A17227F9D001C0751 /* LocationMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationMapViewController.m; sourceTree = "<group>"; };
 		0094328C172280A5001C0751 /* ISSMapAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISSMapAnnotation.h; sourceTree = "<group>"; };
 		0094328D172280A5001C0751 /* ISSMapAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISSMapAnnotation.m; sourceTree = "<group>"; };
 		0094328F172280D5001C0751 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		009FF2DF172490B000404477 /* la foto.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "la foto.JPG"; sourceTree = "<group>"; };
 		00C99886172203AF00D8281A /* SpotTheISS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpotTheISS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		00C99889172203AF00D8281A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		00C9988B172203AF00D8281A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -310,6 +345,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				007369C81728896C003CFA63 /* libstdc++.dylib in Frameworks */,
+				007369C617288954003CFA63 /* libsqlite3.dylib in Frameworks */,
+				007369C417288936003CFA63 /* OpenGLES.framework in Frameworks */,
+				007369C2172881C9003CFA63 /* WhirlyGlobeComponent.framework in Frameworks */,
 				00D7C7F217232477004AFEB2 /* QuartzCore.framework in Frameworks */,
 				00D7C7F01723241F004AFEB2 /* Social.framework in Frameworks */,
 				00D7C7EE17232413004AFEB2 /* MobileCoreServices.framework in Frameworks */,
@@ -324,6 +363,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		007369A9172880FA003CFA63 /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				007369AA172880FA003CFA63 /* lowres_wtb */,
+			);
+			path = resources;
+			sourceTree = "<group>";
+		};
+		007369AA172880FA003CFA63 /* lowres_wtb */ = {
+			isa = PBXGroup;
+			children = (
+				007369AB172880FA003CFA63 /* lowres_wtb_0x0.pvrtc */,
+				007369AC172880FA003CFA63 /* lowres_wtb_0x1.pvrtc */,
+				007369AD172880FA003CFA63 /* lowres_wtb_1x0.pvrtc */,
+				007369AE172880FA003CFA63 /* lowres_wtb_1x1.pvrtc */,
+				007369AF172880FA003CFA63 /* lowres_wtb_2x0.pvrtc */,
+				007369B0172880FA003CFA63 /* lowres_wtb_2x1.pvrtc */,
+				007369B1172880FA003CFA63 /* lowres_wtb_3x0.pvrtc */,
+				007369B2172880FA003CFA63 /* lowres_wtb_3x1.pvrtc */,
+				007369B3172880FA003CFA63 /* lowres_wtb_4x0.pvrtc */,
+				007369B4172880FA003CFA63 /* lowres_wtb_4x1.pvrtc */,
+				007369B5172880FA003CFA63 /* lowres_wtb_info.plist */,
+			);
+			path = lowres_wtb;
+			sourceTree = "<group>";
+		};
 		00C9987D172203AE00D8281A = {
 			isa = PBXGroup;
 			children = (
@@ -347,6 +412,10 @@
 		00C99888172203AF00D8281A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				007369C71728896C003CFA63 /* libstdc++.dylib */,
+				007369C517288954003CFA63 /* libsqlite3.dylib */,
+				007369C317288936003CFA63 /* OpenGLES.framework */,
+				007369C1172881C9003CFA63 /* WhirlyGlobeComponent.framework */,
 				00D7C7F117232477004AFEB2 /* QuartzCore.framework */,
 				00D7C7EF1723241F004AFEB2 /* Social.framework */,
 				00D7C7ED17232413004AFEB2 /* MobileCoreServices.framework */,
@@ -362,6 +431,7 @@
 		00C9988F172203AF00D8281A /* SpotTheISS */ = {
 			isa = PBXGroup;
 			children = (
+				007369A9172880FA003CFA63 /* resources */,
 				00D7C75317230B8D004AFEB2 /* Utils */,
 				00C998B817221D7C00D8281A /* AFNetworking */,
 				00C998B71722169F00D8281A /* DefineConst.h */,
@@ -381,6 +451,8 @@
 				00D7C82817235108004AFEB2 /* ConfigureSpotPassViewController.m */,
 				00D7C82C17245066004AFEB2 /* AstronautsTableViewController.h */,
 				00D7C82D17245069004AFEB2 /* AstronautsTableViewController.m */,
+				007369A417287F7D003CFA63 /* Location3DGlobeViewController.h */,
+				007369A517287F7D003CFA63 /* Location3DGlobeViewController.m */,
 				00C998A1172203AF00D8281A /* MainStoryboard.storyboard */,
 				00D7C760172313A4004AFEB2 /* images */,
 				00C99890172203AF00D8281A /* Supporting Files */,
@@ -478,6 +550,7 @@
 				00D7C762172313A4004AFEB2 /* bg_front_spacedust-ipadhd.png */,
 				00D7C763172313A4004AFEB2 /* bg_front_spacedust.png */,
 				00D7C764172313A4004AFEB2 /* bg_galaxy-hd.png */,
+				009FF2DF172490B000404477 /* la foto.JPG */,
 				00D7C765172313A4004AFEB2 /* bg_galaxy-ipadhd.png */,
 				00D7C766172313A4004AFEB2 /* bg_galaxy.png */,
 				00D7C767172313A4004AFEB2 /* bg_planetsunrise-hd.png */,
@@ -709,6 +782,18 @@
 				00D7C83617245E93004AFEB2 /* BlueButton@2x.png in Resources */,
 				00D7C83717245E93004AFEB2 /* BlueButtonPressed.png in Resources */,
 				00D7C83817245E93004AFEB2 /* BlueButtonPressed@2x.png in Resources */,
+				009FF2E0172490B000404477 /* la foto.JPG in Resources */,
+				007369B6172880FA003CFA63 /* lowres_wtb_0x0.pvrtc in Resources */,
+				007369B7172880FA003CFA63 /* lowres_wtb_0x1.pvrtc in Resources */,
+				007369B8172880FA003CFA63 /* lowres_wtb_1x0.pvrtc in Resources */,
+				007369B9172880FA003CFA63 /* lowres_wtb_1x1.pvrtc in Resources */,
+				007369BA172880FA003CFA63 /* lowres_wtb_2x0.pvrtc in Resources */,
+				007369BB172880FA003CFA63 /* lowres_wtb_2x1.pvrtc in Resources */,
+				007369BC172880FA003CFA63 /* lowres_wtb_3x0.pvrtc in Resources */,
+				007369BD172880FA003CFA63 /* lowres_wtb_3x1.pvrtc in Resources */,
+				007369BE172880FA003CFA63 /* lowres_wtb_4x0.pvrtc in Resources */,
+				007369BF172880FA003CFA63 /* lowres_wtb_4x1.pvrtc in Resources */,
+				007369C0172880FA003CFA63 /* lowres_wtb_info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -740,6 +825,7 @@
 				00D7C8291723510B004AFEB2 /* ConfigureSpotPassViewController.m in Sources */,
 				00D7C82E1724506E004AFEB2 /* AstronautsTableViewController.m in Sources */,
 				00D7C83B17246D62004AFEB2 /* MKMapView+ZoomLevel.m in Sources */,
+				007369A617287F7D003CFA63 /* Location3DGlobeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -790,6 +876,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = /Users/jmdelaroca/Dropbox/Mac/Developer/SpotTheISS/WhirlyGlobeComponent.framework/Headers;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -814,6 +901,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = /Users/jmdelaroca/Dropbox/Mac/Developer/SpotTheISS/WhirlyGlobeComponent.framework/Headers;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
@@ -824,10 +912,16 @@
 		00C998AA172203AF00D8281A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SpotTheISS/SpotTheISS-Prefix.pch";
 				INFOPLIST_FILE = "SpotTheISS/SpotTheISS-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_LDFLAGS = "-all_load";
+				"OTHER_LDFLAGS[arch=*]" = "-all_load";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -836,10 +930,15 @@
 		00C998AB172203AF00D8281A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SpotTheISS/SpotTheISS-Prefix.pch";
 				INFOPLIST_FILE = "SpotTheISS/SpotTheISS-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

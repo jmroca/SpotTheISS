@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12D78" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="DOe-08-JTL">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="11G63" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="DOe-08-JTL">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -33,9 +33,9 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="8F1-Re-wFu">
-                                <rect key="frame" x="36" y="12.5" width="248" height="44"/>
+                                <rect key="frame" x="36" y="8.5" width="248" height="44"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                <state key="normal" title="ISS Where is @" backgroundImage="BlueButton.png">
+                                <state key="normal" title="ISS Where is @ Map" backgroundImage="BlueButton.png">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -46,8 +46,22 @@
                                     <segue destination="7Nx-Kr-Pi6" kind="push" id="zDa-4J-jPl"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="PS3-jB-nbl">
+                                <rect key="frame" x="36" y="54" width="248" height="44"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <state key="normal" title="ISS Where is @ 3D Globe" backgroundImage="BlueButton.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted" backgroundImage="BlueButtonPressed.png">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="eys-M9-4eo" kind="push" identifier="Location3DGlobe" id="ruq-Ha-BE6"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="dk6-zD-fyl">
-                                <rect key="frame" x="36" y="65" width="248" height="44"/>
+                                <rect key="frame" x="36" y="100" width="248" height="44"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <state key="normal" title="When is Passing Nearby" backgroundImage="BlueButton.png">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -61,7 +75,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="iWl-Ch-ssf">
-                                <rect key="frame" x="36" y="116" width="248" height="44"/>
+                                <rect key="frame" x="36" y="146" width="248" height="44"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <state key="normal" title="Record Spot Event" backgroundImage="BlueButton.png">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -75,7 +89,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="wCw-nw-Bkb">
-                                <rect key="frame" x="36" y="167" width="248" height="44"/>
+                                <rect key="frame" x="36" y="192" width="248" height="44"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <state key="normal" title="Share with Astronauts" backgroundImage="BlueButton.png">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -89,7 +103,7 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="iss-flag copy.png" id="qZB-vq-xEP">
-                                <rect key="frame" x="65" y="216" width="190" height="191"/>
+                                <rect key="frame" x="64" y="243" width="193" height="158"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </imageView>
                         </subviews>
@@ -315,10 +329,6 @@
                                 <rect key="frame" x="210" y="304" width="79" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </switch>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="pebblewatch-icon.png" id="F0h-vh-vf6">
-                                <rect key="frame" x="23" y="301" width="75" height="73"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="prh-hd-0av">
                                 <rect key="frame" x="161" y="363" width="126" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -332,6 +342,21 @@
                                 </state>
                                 <connections>
                                     <action selector="cmdSave:" destination="UI3-21-2rV" eventType="touchUpInside" id="svb-Kb-Ja3"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="A0I-Tp-MFu">
+                                <rect key="frame" x="20" y="305" width="77" height="75"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Button" image="pebblewatch-icon.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="D2U-GM-hdb" kind="push" id="Whi-k8-V6W"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -348,6 +373,27 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qmN-kW-DYy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="213" y="-780"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="wJN-OF-Ohp">
+            <objects>
+                <viewController id="D2U-GM-hdb" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="HZ8-iB-JOG">
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="la foto.JPG" id="yUU-xK-iLR">
+                                <rect key="frame" x="0.0" y="46" width="320" height="414"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="94R-lX-h4a"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dDC-BP-5OU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="614" y="-784"/>
         </scene>
         <!--Astronauts Table View Controller-->
         <scene sceneID="kq7-NO-Pq1">
@@ -490,6 +536,74 @@
             </objects>
             <point key="canvasLocation" x="191" y="453"/>
         </scene>
+        <!--Location3D Globe View Controller-->
+        <scene sceneID="nqT-nC-X9s">
+            <objects>
+                <viewController id="eys-M9-4eo" customClass="Location3DGlobeViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3hP-bV-Z0n">
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" id="ORd-Va-h8x">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="371"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="zIj-X0-vix">
+                                        <rect key="frame" x="7" y="233" width="132" height="132"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="l77-OR-fhe">
+                                <rect key="frame" x="4" y="379" width="44" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" image="facebook_btn.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="r6c-eY-0yo">
+                                <rect key="frame" x="49" y="379" width="44" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" image="twitter.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" momentary="YES" id="Obh-q2-EVz">
+                                <rect key="frame" x="148" y="373" width="167" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="" image="photo.png"/>
+                                    <segment title="" image="save.png"/>
+                                </segments>
+                                <connections>
+                                    <action selector="cmdTakePicture:" destination="eys-M9-4eo" eventType="valueChanged" id="JYE-lc-8OL"/>
+                                    <action selector="cmdTakePicture:" destination="QwD-Ta-3SD" eventType="valueChanged" id="vfX-Cv-DO5"/>
+                                </connections>
+                            </segmentedControl>
+                        </subviews>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="7dD-om-Q7R"/>
+                    <connections>
+                        <outlet property="globeView" destination="ORd-Va-h8x" id="KGt-bZ-iOD"/>
+                        <outlet property="imageSpot" destination="zIj-X0-vix" id="8rc-yr-NqT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rZH-yK-Ilr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="558" y="454"/>
+        </scene>
     </scenes>
     <resources>
         <image name="BlueButton.png" width="204" height="42"/>
@@ -499,60 +613,12 @@
         <image name="btn.png" width="382" height="147"/>
         <image name="facebook_btn.png" width="32" height="32"/>
         <image name="iss-flag copy.png" width="424" height="424"/>
+        <image name="la foto.JPG" width="1224" height="1632"/>
         <image name="pebblewatch-icon.png" width="512" height="512"/>
         <image name="photo.png" width="32" height="32"/>
         <image name="save.png" width="32" height="32"/>
         <image name="twitter.png" width="32" height="32"/>
     </resources>
-    <classes>
-        <class className="AstronautsTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AstronautsTableViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
-            </relationships>
-        </class>
-        <class className="ConfigureSpotPassViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ConfigureSpotPassViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="switchCalendar" candidateClass="UISwitch"/>
-                <relationship kind="outlet" name="switchNotification" candidateClass="UISwitch"/>
-                <relationship kind="outlet" name="switchPebble" candidateClass="UISwitch"/>
-                <relationship kind="outlet" name="txtDateTime" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="txtDuration" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="LocationMapViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LocationMapViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="cmdRefresh:"/>
-                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
-            </relationships>
-        </class>
-        <class className="MainMenuViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainMenuViewController.h"/>
-        </class>
-        <class className="PassTimesTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PassTimesTableViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
-            </relationships>
-        </class>
-        <class className="SpotResultViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SpotResultViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="cmdCancel:"/>
-                <relationship kind="action" name="cmdFacebook:"/>
-                <relationship kind="action" name="cmdQuestion:"/>
-                <relationship kind="action" name="cmdSave:"/>
-                <relationship kind="action" name="cmdTwitter:"/>
-                <relationship kind="outlet" name="imageSpot" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="txtReason" candidateClass="UITextView"/>
-            </relationships>
-        </class>
-        <class className="TPKeyboardAvoidingScrollView" superclassName="UIScrollView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TPKeyboardAvoidingScrollView.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
