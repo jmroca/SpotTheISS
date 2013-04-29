@@ -11,10 +11,13 @@
 #import "AFJSONRequestOperation.h"
 #import "AppDelegate.h"
 #import "ConfigureSpotPassViewController.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface PassTimesTableViewController ()
 
 @property (nonatomic, strong) NSArray* dataPassTimes;
+
+@property (nonatomic, strong) NSArray* dataWeather;
 
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
@@ -25,6 +28,7 @@
 @implementation PassTimesTableViewController
 
 @synthesize dataPassTimes = _dataPassTimes;
+@synthesize dataWeather = _dataWeather;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -37,15 +41,16 @@
 
 
 
-
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 
     //self.tableView.backgroundColor = [UIColor grayColor];
     
-    [self getDataPassTimes];
+    // activar deteccion de ubicacion via CoreLocation
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    [appDelegate.locationManager startUpdatingLocation];
+
     
     
     // suscribirse a la notificacion cuando el app regresa a foreground.
@@ -55,6 +60,9 @@
     self.title = @"Next Pass Times";
     
     self.navigationController.navigationBarHidden = NO;
+    
+    // launch query of pass times for the current location.
+    [self getDataPassTimes];
     
     
     // Uncomment the following line to preserve selection between presentations.
@@ -81,7 +89,6 @@
     // desactivar deteccion de ubicacion via CoreLocation
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     [appDelegate.locationManager stopUpdatingLocation];
-    appDelegate.currentLocation = nil;
     
     NSLog(@"Location Stopped");
     
@@ -94,7 +101,6 @@
     // desactivar deteccion de ubicacion via CoreLocation
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     [appDelegate.locationManager stopUpdatingLocation];
-    appDelegate.currentLocation = nil;
     
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 
@@ -116,10 +122,14 @@
     
     [self.activityIndicator startAnimating];
     
+    NSLog(@"Parametros: %@, %@, %@",[NSString stringWithFormat:@"%+.6f",appDelegate.currentLocation.coordinate.latitude],
+          [NSString stringWithFormat:@"%+.6f",appDelegate.currentLocation.coordinate.longitude],
+          [NSString stringWithFormat:@"%+.6f",appDelegate.currentLocation.altitude]);
+    
     NSURL *baseURL = [NSURL URLWithString:[NSString stringWithFormat:BaseURLString]];
     NSDictionary *parameters = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:
-                                                                    [NSString stringWithFormat:@"%f",appDelegate.currentLocation.coordinate.longitude],
                                                                     [NSString stringWithFormat:@"%f",appDelegate.currentLocation.coordinate.latitude],
+                                                                    [NSString stringWithFormat:@"%f",appDelegate.currentLocation.coordinate.longitude],
                                                                     [NSString stringWithFormat:@"%f",appDelegate.currentLocation.altitude],
                                                                     
                                                                     @"5",nil]
@@ -134,15 +144,19 @@
          parameters:parameters
             success:^(AFHTTPRequestOperation *operation, id JSON) {
                 if(JSON)
+                {
                     self.dataPassTimes = [(NSDictionary *)JSON objectForKey:@"response"];
-                
+                    NSLog(@"Message y Latitud: %@ , %@",[(NSDictionary *)JSON objectForKey:@"message"],
+                          [[(NSDictionary *)JSON objectForKey:@"request"] objectForKey:@"latitude"]);
+                }
+                [self getDataWeather];
                 [self.activityIndicator stopAnimating];
                 [self.tableView reloadData];
             }
             failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                 
                 [self.activityIndicator stopAnimating];
-                UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Error Retrieving Weather"
+                UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Error Retrieving ISS Pass Times"
                                                              message:[NSString stringWithFormat:@"%@",error]
                                                             delegate:nil
                                                    cancelButtonTitle:@"OK" otherButtonTitles:nil];
@@ -154,14 +168,62 @@
     
 }
 
--(NSString*) unixDateToLocaleDate:(double) unixTimeStamp
+-(void) getDataWeather
+{
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    
+    [self.activityIndicator startAnimating];
+    
+    NSURL *baseURL = [NSURL URLWithString:[NSString stringWithFormat:BaseWWURLString]];
+    
+    NSDictionary *parameters = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:
+                                                                    [NSString stringWithFormat:@"%f,%f",appDelegate.currentLocation.coordinate.latitude,appDelegate.currentLocation.coordinate.longitude],
+                                                                    @"json",@"5",@"no",WorldWeatherAPIKey,nil]
+                                                           forKeys:[NSArray arrayWithObjects:@"q",@"format",@"num_of_days",@"cc",@"key",nil]];
+    
+    // 2
+    AFHTTPClient *client = [[AFHTTPClient alloc] initWithBaseURL:baseURL];
+    [client registerHTTPOperationClass:[AFJSONRequestOperation class]];
+    [client setDefaultHeader:@"Accept" value:@"application/json"];
+    
+    [client getPath:@"weather.ashx"
+         parameters:parameters
+            success:^(AFHTTPRequestOperation *operation, id JSON) {
+                if(JSON)
+                    self.dataWeather = [[(NSDictionary *)JSON objectForKey:@"data"] objectForKey:@"weather"];
+                
+                [self.activityIndicator stopAnimating];
+                [self.tableView reloadData];
+                
+                if(self.dataWeather)
+                    NSLog(@"Weather: %@ %@", [[self.dataWeather lastObject] objectForKey:@"date"], [[self.dataWeather lastObject] objectForKey:@"weatherCode"]);
+            
+            }
+     
+            failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                
+                [self.activityIndicator stopAnimating];
+                UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Error Retrieving Weather Data"
+                                                             message:[NSString stringWithFormat:@"%@",error]
+                                                            delegate:nil
+                                                   cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                [av show];
+                
+            }
+     ];
+    
+    
+}
+
+// convert unix timestamp (echo timestamp) to local date time.
+-(NSString*) unixDateToLocaleDate:(double) unixTimeStamp withFormat:(NSString*) format
 {
     
     NSTimeInterval _interval=unixTimeStamp;
     NSDate *date = [NSDate dateWithTimeIntervalSince1970:_interval];
     NSDateFormatter *_formatter=[[NSDateFormatter alloc]init];
     [_formatter setLocale:[NSLocale currentLocale]];
-    [_formatter setDateFormat:@"dd/MM/yyyy HH:mm"];
+    [_formatter setDateFormat:format];
     
     return[_formatter stringFromDate:date];
 }
@@ -200,22 +262,38 @@
     
     if (data) {
         
-        cell.textLabel.text = [NSString stringWithFormat:@"%@", [self unixDateToLocaleDate:[[data objectForKey:@"risetime"] doubleValue]]];
+        cell.textLabel.text = [NSString stringWithFormat:@"%@", [self unixDateToLocaleDate:[[data objectForKey:@"risetime"] doubleValue]
+                                                                                withFormat:@"dd/MM/yyyy HH:mm"]];
         
         cell.detailTextLabel.text = [NSString stringWithFormat:@"Duration (min): %d",(int)roundf([(NSNumber*)[data objectForKey:@"duration"] doubleValue]/60)];
         
-        if(indexPath.row ==0)
-            cell.imageView.image = [UIImage imageNamed:@"angrycloud"];
-        else if(indexPath.row == 1)
-            cell.imageView.image = [UIImage imageNamed:@"cloud"];
-        else if(indexPath.row == 2)
-            cell.imageView.image = [UIImage imageNamed:@"clear"];
-        else if(indexPath.row == 3)
-            cell.imageView.image = [UIImage imageNamed:@"lightsky"];
-        else if(indexPath.row == 4)
-            cell.imageView.image = [UIImage imageNamed:@"cloud"];
         
+        // obtain weather info for the pass date
+        for (NSDictionary* dateInfo in self.dataWeather) {
+            
+            if ([[dateInfo objectForKey:@"date"] isEqualToString:[self unixDateToLocaleDate:[[data objectForKey:@"risetime"] doubleValue]
+                                                                                 withFormat:@"yyyy-MM-dd"]])
+            {
+                // use the weather service icon to set the cell image.
+                __weak UITableViewCell *weakCell = cell;
+                
+                [cell.imageView setImageWithURLRequest:[[NSURLRequest alloc]
+                                                        initWithURL:[NSURL URLWithString:[[[dateInfo objectForKey:@"weatherIconUrl"] lastObject] objectForKey:@"value"]]]
+                                      placeholderImage:[UIImage imageNamed:@"placeholder.png"]
+                                               success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image){
+                                                   weakCell.imageView.image = image;
+                                                   
+                                                   [weakCell setNeedsLayout];
+                                                   
+                                               }
+                                               failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error){
+                                                   
+                                               }];
 
+                
+                break;
+            }
+        }
         
             
             
@@ -239,5 +317,12 @@
      [self.navigationController pushViewController:detailViewController animated:YES];
     
 }
+
+
+- (IBAction)cmdRefresh:(id)sender
+{
+    [self getDataPassTimes];
+}
+
 
 @end

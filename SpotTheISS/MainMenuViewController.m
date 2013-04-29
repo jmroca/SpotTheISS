@@ -8,6 +8,7 @@
 
 #import "MainMenuViewController.h"
 #import "SpotResultViewController.h"
+#import "AppDelegate.h"
 
 @interface MainMenuViewController () <SpotResultViewControllerDelegate>
 
@@ -63,7 +64,6 @@
         
         
     }
-    
     
     
     

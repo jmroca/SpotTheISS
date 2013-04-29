@@ -11,6 +11,14 @@
 #define HEIGHT_IPAD 768
 #define HEIGHT_IPHONE 320
 
+// World Weather Online API Key, FREE API Level
+#define WorldWeatherAPIKey @"gxuck92qu5mntpj6b38qawa8"
+
 
 // base URL for Open Notify API
 static NSString *const BaseURLString = @"http://api.open-notify.org/";
+
+// base URL for World Weather API
+static NSString *const BaseWWURLString = @"http://api.worldweatheronline.com/free/v1/";
+
+//http://api.worldweatheronline.com/free/v1/weather.ashx?q=Guatemala&format=json&num_of_days=5&cc=no&key=gxuck92qu5mntpj6b38qawa8

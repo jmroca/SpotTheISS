@@ -86,7 +86,9 @@
         self.locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters;
         
         // filtrar solo si se tiene una distancia mayor
-        self.locationManager.distanceFilter = 1;
+        self.locationManager.distanceFilter = 100;
+        
+        [self.locationManager startUpdatingLocation];
         
     }
     
