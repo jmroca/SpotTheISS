@@ -27,6 +27,7 @@
 		007369C417288936003CFA63 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 007369C317288936003CFA63 /* OpenGLES.framework */; };
 		007369C617288954003CFA63 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 007369C517288954003CFA63 /* libsqlite3.dylib */; };
 		007369C81728896C003CFA63 /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 007369C71728896C003CFA63 /* libstdc++.dylib */; };
+		008D314D1730DFBA00D6E787 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 008D314C1730DFBA00D6E787 /* Twitter.framework */; };
 		0094328B17227F9D001C0751 /* LocationMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0094328A17227F9D001C0751 /* LocationMapViewController.m */; };
 		0094328E172280A5001C0751 /* ISSMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0094328D172280A5001C0751 /* ISSMapAnnotation.m */; };
 		00943290172280D5001C0751 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0094328F172280D5001C0751 /* MapKit.framework */; };
@@ -167,6 +168,7 @@
 		007369C317288936003CFA63 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		007369C517288954003CFA63 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		007369C71728896C003CFA63 /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/libstdc++.dylib"; sourceTree = SDKROOT; };
+		008D314C1730DFBA00D6E787 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 		0094328917227F9D001C0751 /* LocationMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationMapViewController.h; sourceTree = "<group>"; };
 		0094328A17227F9D001C0751 /* LocationMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationMapViewController.m; sourceTree = "<group>"; };
 		0094328C172280A5001C0751 /* ISSMapAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISSMapAnnotation.h; sourceTree = "<group>"; };
@@ -315,13 +317,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				008D314D1730DFBA00D6E787 /* Twitter.framework in Frameworks */,
+				00D7C7F01723241F004AFEB2 /* Social.framework in Frameworks */,
 				0059058F172F155D00899C76 /* EventKit.framework in Frameworks */,
 				007369C81728896C003CFA63 /* libstdc++.dylib in Frameworks */,
 				007369C617288954003CFA63 /* libsqlite3.dylib in Frameworks */,
 				007369C417288936003CFA63 /* OpenGLES.framework in Frameworks */,
 				007369C2172881C9003CFA63 /* WhirlyGlobeComponent.framework in Frameworks */,
 				00D7C7F217232477004AFEB2 /* QuartzCore.framework in Frameworks */,
-				00D7C7F01723241F004AFEB2 /* Social.framework in Frameworks */,
 				00D7C7EE17232413004AFEB2 /* MobileCoreServices.framework in Frameworks */,
 				00943290172280D5001C0751 /* MapKit.framework in Frameworks */,
 				000177B21722260900ED8FA3 /* CoreLocation.framework in Frameworks */,
@@ -385,6 +388,7 @@
 		00C99888172203AF00D8281A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				008D314C1730DFBA00D6E787 /* Twitter.framework */,
 				0059058E172F155D00899C76 /* EventKit.framework */,
 				007369C71728896C003CFA63 /* libstdc++.dylib */,
 				007369C517288954003CFA63 /* libsqlite3.dylib */,

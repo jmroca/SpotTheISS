@@ -7,6 +7,8 @@
 //
 
 #import "ImageUtils.h"
+#import <QuartzCore/QuartzCore.h>
+
 
 @implementation ImageUtils
 
@@ -171,4 +173,22 @@
     
     return newImage; 
 }
+
++(UIImage*) generateImageFromView:(UIView*) theView
+{
+    // create an image from the content of a view
+    
+    UIGraphicsBeginImageContext(theView.bounds.size);
+	
+    [theView.layer renderInContext:UIGraphicsGetCurrentContext()];
+	
+	UIImage * viewImage = UIGraphicsGetImageFromCurrentImageContext();
+	
+	UIGraphicsEndImageContext();
+	
+    return viewImage;
+}
+
+
+
 @end

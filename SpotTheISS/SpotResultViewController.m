@@ -11,6 +11,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import <MobileCoreServices/MobileCoreServices.h>
 #import "ImageUtils.h"
+#import <Twitter/Twitter.h>
 
 @interface SpotResultViewController () < UITextViewDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
@@ -186,6 +187,26 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
 - (IBAction)cmdTwitter:(id)sender {
 
 
+    TWTweetComposeViewController *tweetSheet = [[TWTweetComposeViewController alloc] init];
+    
+    //Customize the tweet sheet here
+    //Add a tweet message
+    [tweetSheet setInitialText:[NSString stringWithFormat:@"%@", self.txtReason.text]];
+    
+    //Add an image
+    //[tweetSheet addImage:[self snapshot:globeViewC.view]];
+    
+    if (self.imageSpot.image != nil)
+        [tweetSheet addImage:self.imageSpot.image];
+    
+    //Set a blocking handler for the tweet sheet
+    tweetSheet.completionHandler = ^(TWTweetComposeViewControllerResult result){
+        
+        [self dismissModalViewControllerAnimated:YES];
+    };
+    
+    //Show the tweet sheet!
+    [self presentModalViewController:tweetSheet animated:YES];
 }
 
 

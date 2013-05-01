@@ -9,6 +9,7 @@
 #import "AstronautsTableViewController.h"
 #import "DefineConst.h"
 #import "AFJSONRequestOperation.h"
+#import <Twitter/Twitter.h>
 
 
 @interface AstronautsTableViewController ()
@@ -146,6 +147,31 @@
     return cell;
 }
 
+#pragma mark - Table view delegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    TWTweetComposeViewController *tweetSheet = [[TWTweetComposeViewController alloc] init];
+    
+    
+    
+    //Customize the tweet sheet here
+    //Add a tweet message
+    [tweetSheet setInitialText:[NSString stringWithFormat:@"%@ %@",[[self.dataAstronauts objectAtIndex:indexPath.row] objectForKey:@"name"],
+                                NASA_Astronauts_Twitter]];
+    
+    
+    //Set a blocking handler for the tweet sheet
+    tweetSheet.completionHandler = ^(TWTweetComposeViewControllerResult result){
+        
+        [self dismissModalViewControllerAnimated:YES];
+    };
+    
+    //Show the tweet sheet!
+    [self presentModalViewController:tweetSheet animated:YES];
+    
+    
+}
 
 
 @end

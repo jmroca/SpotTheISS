@@ -14,6 +14,8 @@
 // World Weather Online API Key, FREE API Level
 #define WorldWeatherAPIKey @"gxuck92qu5mntpj6b38qawa8"
 
+#define NASA_Astronauts_Twitter @"@NASA_Astronauts"
+
 
 // base URL for Open Notify API
 static NSString *const BaseURLString = @"http://api.open-notify.org/";

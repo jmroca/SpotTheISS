@@ -21,4 +21,7 @@
 // redimensionar una imagen con CoreGraphics
 + (UIImage*)imageWithImage:(UIImage*)sourceImage scaledToSizeWithSameAspectRatio:(CGSize)targetSize;
 
++(UIImage*) generateImageFromView:(UIView*) theView;
+
+
 @end

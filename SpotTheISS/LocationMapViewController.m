@@ -10,17 +10,26 @@
 #import "DefineConst.h"
 #import "ISSMapAnnotation.h"
 #import "MKMapView+ZoomLevel.h"
+#import <Twitter/Twitter.h>
+#import "ImageUtils.h"
+#import <MobileCoreServices/MobileCoreServices.h>
+#import <QuartzCore/QuartzCore.h>
+
 
 #define ZOOM_LEVEL 3
 
 
 
-@interface LocationMapViewController () <MKMapViewDelegate> {
+@interface LocationMapViewController () <MKMapViewDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
+{
     NSMutableArray *_locations;
     NSDictionary* currentLocation;
 }
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
+
+@property (weak, nonatomic) IBOutlet UIImageView *imageSpot;
+
 
 @property (weak) NSTimer* repeatingTimer;
 
@@ -44,6 +53,10 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    // bordes redondeados para imagen
+    self.imageSpot.layer.cornerRadius = 15;
+    self.imageSpot.layer.masksToBounds = YES;
     
     self.navigationController.navigationBarHidden = NO;
     
@@ -177,6 +190,135 @@
     
 }
 
+#pragma mark - UIImagePickerController
+
+// take a picture or select from photo album
+- (IBAction)cmdTakePicture:(UISegmentedControl *)sender {
+    
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    
+    
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera] && sender.selectedSegmentIndex == 0)
+    {
+        // tomar la imagen de la camara
+        NSArray *mediaTypes = [UIImagePickerController availableMediaTypesForSourceType:UIImagePickerControllerSourceTypeCamera];
+        if ([mediaTypes containsObject:(NSString *)kUTTypeImage]) {
+            
+            picker.delegate = self;
+            picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+            picker.mediaTypes = [NSArray arrayWithObject:(NSString *)kUTTypeImage];
+            picker.allowsEditing = YES;
+            
+            if(IS_IPHONE)
+                [self presentModalViewController:picker animated:YES];
+            /*else if(IS_IPAD)
+             {
+             // presentarlo con uipopover
+             self.popOverCamera = [[UIPopoverController alloc] initWithContentViewController:picker];
+             [self.popOverCamera presentPopoverFromRect:sender.bounds inView:sender permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+             }*/
+            
+        }
+    }
+    else if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary] && sender.selectedSegmentIndex == 1)
+    {
+        // tomar la imagen del album de fotos.
+        picker.delegate = self;
+        picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        picker.mediaTypes = [NSArray arrayWithObject:(NSString *)kUTTypeImage];
+        picker.allowsEditing = YES;
+        
+        if(IS_IPHONE)
+            [self presentModalViewController:picker animated:YES];
+        /*else if(IS_IPAD)
+         {
+         // presentarlo con uipopover
+         self.popOverCamera = [[UIPopoverController alloc] initWithContentViewController:picker];
+         [self.popOverCamera presentPopoverFromRect:sender.bounds inView:sender permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+         }*/
+    }
+    
+    
+}
+
+- (void)dismissImagePicker
+{
+    
+    if(IS_IPHONE)
+        [self dismissModalViewControllerAnimated:YES];
+    /*else if (IS_IPAD)
+     [self.popOverCamera dismissPopoverAnimated:YES];
+     */
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker
+didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    UIImage* thumbnail;
+    
+    // obtenemos imagen editada
+    UIImage *image = [info objectForKey:UIImagePickerControllerEditedImage];
+    
+    if (!image)
+        // obtenemos imagen original
+        image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    
+    
+    if (image)
+    {
+        
+        
+        
+        // reducimos a thumbnail la imagen, dependiendo de la orientacion
+        if (image.imageOrientation == UIImageOrientationUp || image.imageOrientation == UIImageOrientationDown)
+            thumbnail= [ImageUtils imageWithImage:image scaledToSizeWithSameAspectRatio:CGSizeMake(132, 132)];
+        else
+            thumbnail= [ImageUtils imageWithImage:image scaledToSizeWithSameAspectRatio:CGSizeMake(132, 132)];
+        
+        
+        self.imageSpot.image = thumbnail;
+        
+        [self.mapView addSubview:self.imageSpot];
+        
+    }
+    
+    [self dismissImagePicker];
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    [self dismissImagePicker];
+}
+
+
+
+// tweet text and image of ISS position and photo
+- (IBAction)cmdTweet:(id)sender
+{
+    
+    TWTweetComposeViewController *tweetSheet = [[TWTweetComposeViewController alloc] init];
+    
+    //Customize the tweet sheet here
+    //Add a tweet message
+    [tweetSheet setInitialText:@"International Space Station Spotted!!"];
+    
+    //Add an image
+    [tweetSheet addImage:[ImageUtils generateImageFromView:self.mapView ]];
+    
+    
+    //Set a blocking handler for the tweet sheet
+    tweetSheet.completionHandler = ^(TWTweetComposeViewControllerResult result){
+        
+        [self dismissModalViewControllerAnimated:YES];
+    };
+    
+    //Show the tweet sheet!
+    [self presentModalViewController:tweetSheet animated:YES];
+    
+    
+}
+
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -187,6 +329,7 @@
 - (void)viewDidUnload {
     
     [self.repeatingTimer invalidate];
+    [self setImageSpot:nil];
     [self setMapView:nil];
     [super viewDidUnload];
 }
